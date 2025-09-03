@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    #main-image {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border: 3px solid #333;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .thumbnails {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .thumbnails img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: border 0.3s;
+    }
+
+    .thumbnails img:hover {
+      border: 2px solid #007BFF;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive Image Gallery</h1>
+  
+  <!-- Main Display Image -->
+  <img id="main-image" src="cit.jpeg" alt="Main Display">
+
+  <!-- Thumbnail Images -->
+  <div class="thumbnails">
+    <img src="badmin.jpeg" alt="Thumb1">
+    <img src="basketball.jpeg" alt="Thumb2">
+    <img src="women kaba.jpeg" alt="Thumb3">
+    <img src="men volle.jpeg" alt="Thumb4">
+  </div>
+
+  <script>
+    // Select main image
+    const mainImage = document.getElementById("main-image");
+    
+    // Select all thumbnails
+    const thumbnails = document.querySelectorAll(".thumbnails img");
+
+    // Add click event to each thumbnail
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener("click", function() {
+        // Change main image src
+        mainImage.src = this.src.replace("100/70", "400/300"); 
+      });
+    });
+  </script>
+
+</body>
+</html>
